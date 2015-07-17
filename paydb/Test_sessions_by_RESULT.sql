@@ -1,0 +1,1 @@
+select credit_sessions.result, count(*) from credit_sessions where credit_sessions.result is not null group by credit_sessions.result

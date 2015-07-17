@@ -1,0 +1,27 @@
+
+DROP FUNCTION IF EXISTS LoanTimeTerms;
+CREATE FUNCTION LoanTimeTerms (ID BIGINT) 
+RETURNS BIGINT DETERMINISTIC
+READS SQL DATA	
+BEGIN
+DECLARE _TIME BIGINT;
+SELECT 
+Vw_Sessions_Data.time_to_read_terms INTO _TIME
+FROM Vw_Sessions_Data
+WHERE Vw_Sessions_Data.id = ID;
+RETURN _TIME;
+END;
+
+
+DROP FUNCTION IF EXISTS LoanTimeDescription;
+CREATE FUNCTION LoanTimeDescription (ID BIGINT)  
+RETURNS BIGINT DETERMINISTIC
+READS SQL DATA	
+BEGIN
+DECLARE _TIME BIGINT;
+SELECT 
+Vw_Sessions_Data.time_to_read_description INTO _TIME
+FROM Vw_Sessions_Data
+WHERE Vw_Sessions_Data.id = ID;
+RETURN _TIME;
+END;

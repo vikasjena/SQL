@@ -1,0 +1,1 @@
+SELECT max(FROM_UNIXTIME(credits.date_create)) from credits
